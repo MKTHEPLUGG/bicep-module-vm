@@ -16,7 +16,7 @@ jobs:
 - template: bicep_registry/publish.yml@pipelineTemplates
   parameters:
     azureSubscription: 'Eruza-INT'
-    registryName: 'eruza'
+    registryName: 'eruza123'
     moduleName: 'vm'
 
 
