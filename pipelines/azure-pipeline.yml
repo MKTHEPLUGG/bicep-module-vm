@@ -1,0 +1,23 @@
+trigger:
+  tags:
+    include:
+    - '*'
+
+resources:
+  repositories:
+  - repository: pipelineTemplates
+    type: git
+    name: pipelineTemplates
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+- template: bicep_registry/publish.yml@pipelineTemplates
+  parameters:
+    azureSubscription: 'Eruza-INT'
+    registryName: 'eruza'
+    moduleName: 'vm'
+
+
+# add parameters that were specified in template
