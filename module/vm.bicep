@@ -6,6 +6,7 @@ param location string
 @allowed([
   'acceptance'
   'production'
+  'integration'
 ])
 param environment string
 param purpose string
