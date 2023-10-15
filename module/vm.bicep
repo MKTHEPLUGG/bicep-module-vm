@@ -29,6 +29,10 @@ var locShort = {
   northeurope: 'ne'
 }
 
+var vnetName = 'vnet-${envShortMap[environment]}-${locShort[location]}'
+var subnetName = '${purpose}-sn'
+var subnetId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
+
 var vmName = 'vm-${envShort[environment]}-${locShort[location]}-${purpose}'
 var nicName = '${vmName}-nic'
 var pipName = '${vmName}-pip'
