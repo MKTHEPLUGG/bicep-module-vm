@@ -124,5 +124,3 @@ resource myVM 'Microsoft.Compute/virtualMachines@2023-07-01' = {
     }
   }
 }
-
-output subnetID string = subnetId
