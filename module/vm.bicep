@@ -11,7 +11,7 @@ param environment string
 param purpose string
 param vmAdmin string
 param vmSize string
-param subnetId string
+
 param bootStorage string
 @secure()
 param vmAdminPassword string
@@ -31,6 +31,7 @@ var envShortMap = {
   acceptance: 'acc'
 }
 var envShort = envShortMap[environment]
+
 
 
 
