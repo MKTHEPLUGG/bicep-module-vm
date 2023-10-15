@@ -20,20 +20,25 @@ param osOffer string
 param osSKU string
 param osVersion string
 
-var envShort = {
-  production: 'prd'
-  acceptance: 'acc'
-}
 var locShort = {
   westeurope: 'we'
   northeurope: 'ne'
 }
 
+var envShortMap = {
+  integration: 'int'
+  production: 'prd'
+  acceptance: 'acc'
+}
+var envShort = envShortMap[environment]
+
+
+
 var vnetName = 'vnet-${envShortMap[environment]}-${locShort[location]}'
 var subnetName = '${purpose}-sn'
 var subnetId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
 
-var vmName = 'vm-${envShort[environment]}-${locShort[location]}-${purpose}'
+var vmName = 'vm-${envShortMap[environment]}-${locShort[location]}-${purpose}'
 var nicName = '${vmName}-nic'
 var pipName = '${vmName}-pip'
 
@@ -118,3 +123,5 @@ resource myVM 'Microsoft.Compute/virtualMachines@2023-07-01' = {
     }
   }
 }
+
+output subnetID string = subnetId
